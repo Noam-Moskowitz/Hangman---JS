@@ -41,9 +41,10 @@ letterSBMT.addEventListener("click", function () {
                 let newBankcntnt = bankContains + plyrLetter + ", ";
                 bank.textContent = newBankcntnt;
                 console.log(newBankcntnt)
+                Letterinpt.value = "";
                 return;
             }
         }
     }
-    plyrLetter = "";
+    Letterinpt.value = "";
 })
