@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="hangMan.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="words">
+            <div class="board-container">
+                <div class="" id="1"></div>
+                <div class="" id="2"></div>
+                <div class="" id="3"></div>
+                <div class="" id="4"></div>
+                <div class="" id="5"></div>
+                <div class="" id="6"></div>
+                <div class="" id="7"></div>
+                <div class="" id="8"></div>
+                <div class="" id="9"></div>
+                <div class="" id="10"></div>
+                <div class="" id="11"></div>
+                <div class="" id="12"></div>
+                <div class="" id="13"></div>
+                <div class="" id="14"></div>
+            </div>
+        </div>
+        <div class="score">
+            <div class="marker" id="x1"></div>
+            <div class="marker" id="x2"></div>
+            <div class="marker" id="x3"></div>
+            <div class="marker" id="x4"></div>
+            <div class="marker" id="x5"></div>
+            <div class="marker" id="x6"></div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="input-container">
+            <div class="letters-inpt">
+                <input id="letter" type="text" maxlength="1" placeholder="Guess A Letter">
+                <input type="submit" value="Submit" id="letter-sbmt">
+            </div>
+            <div class="fullwrd-input">
+                <input id="word" type="text" placeholder="Guess The Word">
+                <button id="fullwrd-sbmt">Guess</button>
+            </div>
+        </div>
+        <div class="bank-container">
+            <div id="bank"></div>
+        </div>
+    </div>
+
+    <script src="hangMan.js"></script>
+</body>
+
+</html>
