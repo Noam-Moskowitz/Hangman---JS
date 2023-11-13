@@ -17,6 +17,9 @@
     align-items: end;
     justify-content: end;
     flex-direction: column;
+    background-image: url(./images/Hangman.jpeg);
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 .board-container {
