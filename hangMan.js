@@ -3,8 +3,11 @@ const options = ['Oranges', 'Chocolate', 'Banana', 'Africa', 'Develop', 'Cutlery
 const Letterinpt = document.getElementById('letter');
 const letterSBMT = document.getElementById('letter-sbmt');
 const hangman = document.getElementById('hangman');
-/* const wordinpt = document.getElementById('word'); */
-/* const wordSBMT = document.getElementById('fullwrd-sbmt'); */
+const restart = document.getElementById('restart');
+const defeat = document.getElementById('def-Banner')
+const dfRestart = document.getElementById('def-restart')
+const vcRestart = document.getElementById('vic-restart')
+const victory = document.getElementById('vic-Banner')
 let a = 0;
 const bank = document.getElementById('bank');
 letterSBMT.disabled = true;
@@ -49,37 +52,26 @@ letterSBMT.addEventListener("click", function () {
         let bankContains = bank.textContent;
         let existsInBank = bankContains.indexOf(plyrLetter);
         if (existsInBank == -1) {
-            for (y = 1; y <= 6; y++) {
-                let markerID = "x" + y;
-                let ptag = document.getElementById(markerID).innerHTML;
-                if (!ptag) {
-                    document.getElementById(markerID).innerHTML = "<p> x </p>"
-                    document.getElementById(markerID).style.backgroundColor = "red";
-                    a++;
-                    hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
-                    let newBankcntnt = bankContains + plyrLetter + ", ";
-                    bank.textContent = newBankcntnt;
-                    Letterinpt.value = "";
-                    letterSBMT.disabled = true;
-                    if (a > 5) {
-                        console.log("Loser")
-                    }
-                    return;
-                }
+            a++;
+            hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
+            let newBankcntnt = bankContains + plyrLetter + ", ";
+            bank.textContent = newBankcntnt;
+            Letterinpt.value = "";
+            letterSBMT.disabled = true;
+            if (a > 5) {
+                defeat.style.display = "block";
             }
+            return;
         }
     }
 })
 
-
-
-
-/* wordSBMT.addEventListener("click", function () {
-    let wordGuess = wordinpt.textContent.trim().toLowerCase();
-    if (wordGuess == answerlowerCase) {
-        console.log("victory")
-    } else {
-        console.log("defeat")
-    }
-
-}) */
+restart.addEventListener("click", function () {
+    document.location.reload();
+})
+dfRestart.addEventListener("click", function () {
+    document.location.reload();
+})
+vcRestart.addEventListener("click", function () {
+    document.location.reload();
+})

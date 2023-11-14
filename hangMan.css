@@ -10,16 +10,107 @@
     display: flex;
 }
 
+#vic-Banner,
+#def-Banner {
+    position: absolute;
+    top: 20vh;
+    background-color: grey;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#vic-Banner {
+    display: none;
+}
+
+#def-Banner {
+    display: none;
+}
+
+#def-restart,
+#vic-restart {
+    font-size: 2rem;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: rgb(207, 239, 250);
+    border-radius: 5px;
+}
+
+.banner-content {
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+img {
+    width: 20vw;
+
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20vw;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3rem;
+}
+
 .words {
     height: 100%;
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: end;
     justify-content: end;
     flex-direction: column;
     background-image: url(./images/Hangman.jpeg);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: center;
+    background-size: 15%;
+}
+
+.gameButtons {
+    height: 15vh;
+    width: 5vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column-reverse;
+    position: absolute;
+    left: 2vw;
+    top: 5vh;
+}
+
+#restart {
+    font-size: 2rem;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: rgb(207, 239, 250);
+    border-radius: 5px;
+}
+
+#exit {
+    font-size: 1.8rem;
+    text-decoration: none;
+    border: 1px solid #000;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(255, 121, 121);
+    text-align: center;
 }
 
 .board-container {
@@ -50,6 +141,7 @@
     justify-content: space-around;
 }
 
+/* 
 #x1 {
     background-color: white;
 }
@@ -84,7 +176,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
-}
+} */
 
 .bottom-container {
     width: 100vw;
