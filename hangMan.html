@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="vic-Banner">
+    <div id="vic-Banner" class="banner">
         <div class="banner-content">
             <img src="./images/HG-releived.png" alt="Hangman Relieved">
 
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div id="def-Banner">
+    <div id="def-Banner" class="banner">
         <div class="banner-content">
             <img src="./images/HG-dead.png" alt="Dead Hangman">
 
@@ -33,6 +33,7 @@
     </div>
     <div class="container">
         <div class="gameButtons">
+            <button id="solve">W</button>
             <button id="restart">&#8634;</button>
             <a href="" id="exit"><img class="home" src="./images/house-svgrepo-com.svg" alt=""></a>
         </div>
@@ -58,16 +59,25 @@
     <div class="bottom-container">
         <div class="input-container">
             <div class="inpt">
-                <input id="letter" type="text" maxlength="1" placeholder="Guess A Letter">
+                <input id="letter" class="inpt-style" type="text" maxlength="1" placeholder="Guess A Letter">
                 <input type="submit" value="Submit" id="letter-sbmt">
-            </div>
-            <div class="inpt">
-                <input id="word" type="text" placeholder="Guess The Word">
-                <input type="submit" value="Submit" id="word-sbmt">
             </div>
         </div>
         <div class="bank-container">
             <div id="bank"></div>
+        </div>
+    </div>
+    <div id="solve-banner" class="banner">
+        <div class="solve-content">
+            <h3>All Or Nothing!</h3>
+            <h4>Think you know the word?
+                Go ahead and give it a try!<br>
+                But be careful guessing the wrong word will result in you losing the game. <br>
+                So think twice before you guess.</h4>
+        </div>
+        <div class="word-inpt">
+            <input id="word" class="inpt-style" type="text" placeholder="Guess The Word">
+            <input type="submit" value="Submit" id="word-sbmt">
         </div>
     </div>
 

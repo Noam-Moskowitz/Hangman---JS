@@ -10,6 +10,8 @@ const defeat = document.getElementById('def-Banner')
 const dfRestart = document.getElementById('def-restart')
 const vcRestart = document.getElementById('vic-restart')
 const victory = document.getElementById('vic-Banner')
+const solveButton = document.getElementById('solve');
+const solve = document.getElementById('solve-banner');
 let a = 0;
 const bank = document.getElementById('bank');
 letterSBMT.disabled = true;
@@ -80,13 +82,16 @@ wordSBMT.addEventListener("click", function () {
     let plyrWord = wordInpt.value;
     console.log(plyrWord)
     if (String(plyrWord) === String(answer.toLowerCase())) {
+        solve.style.display = "none";
         victory.style.display = 'block';
     } else {
-        a++;
-        a++;
-        score();
+        solve.style.display = "none";
+        defeat.style.display = 'block';
     }
     wordInpt.value = "";
+})
+solveButton.addEventListener("click", function () {
+    solve.style.display = 'block';
 })
 
 function refresh() {
