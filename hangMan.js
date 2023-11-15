@@ -2,6 +2,8 @@ const options = ['Oranges', 'Chocolate', 'Banana', 'Africa', 'Develop', 'Cutlery
 
 const Letterinpt = document.getElementById('letter');
 const letterSBMT = document.getElementById('letter-sbmt');
+const wordInpt = document.getElementById('word');
+const wordSBMT = document.getElementById('word-sbmt');
 const hangman = document.getElementById('hangman');
 const restart = document.getElementById('restart');
 const defeat = document.getElementById('def-Banner')
@@ -11,6 +13,7 @@ const victory = document.getElementById('vic-Banner')
 let a = 0;
 const bank = document.getElementById('bank');
 letterSBMT.disabled = true;
+wordSBMT.disabled = true;
 
 function randomize() {
     return Math.floor(Math.random() * options.length);
@@ -32,7 +35,11 @@ Letterinpt.addEventListener("keyup", function () {
         letterSBMT.disabled = false;
     }
 })
-
+wordInpt.addEventListener("keyup", function () {
+    if (wordInpt.value.trim() != "") {
+        wordSBMT.disabled = false;
+    }
+})
 letterSBMT.addEventListener("click", function () {
     let plyrLetter = Letterinpt.value;
     let letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase());
@@ -42,36 +49,56 @@ letterSBMT.addEventListener("click", function () {
             indices.push(letterIndex);
             letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase(), letterIndex + 1);
         }
-        for (z = 0; z <= indices.length; z++) {
+        for (z = 0; z < indices.length; z++) {
             let indicesElement = indices[z] + 1;
-            document.getElementById(indicesElement).innerHTML = plyrLetter;
+            document.getElementById(indicesElement).innerHTML = "<p class = 'ptag'>" + plyrLetter + "</p>";
             Letterinpt.value = "";
             letterSBMT.disabled = true;
+            let BoardStatus = document.querySelectorAll('.ptag');
+            let boardstatuslength = BoardStatus.length
+            if (boardstatuslength == answerLength) {
+                victory.style.display = 'block';
+            }
+
+
         }
     } else {
         let bankContains = bank.textContent;
         let existsInBank = bankContains.indexOf(plyrLetter);
         if (existsInBank == -1) {
             a++;
-            hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
+            score();
             let newBankcntnt = bankContains + plyrLetter + ", ";
             bank.textContent = newBankcntnt;
             Letterinpt.value = "";
             letterSBMT.disabled = true;
-            if (a > 5) {
-                defeat.style.display = "block";
-            }
             return;
         }
     }
 })
+wordSBMT.addEventListener("click", function () {
+    let plyrWord = wordInpt.value;
+    console.log(plyrWord)
+    if (String(plyrWord) === String(answer.toLowerCase())) {
+        victory.style.display = 'block';
+    } else {
+        a++;
+        a++;
+        score();
+    }
+    wordInpt.value = "";
+})
 
-restart.addEventListener("click", function () {
+function refresh() {
     document.location.reload();
-})
-dfRestart.addEventListener("click", function () {
-    document.location.reload();
-})
-vcRestart.addEventListener("click", function () {
-    document.location.reload();
-})
+}
+
+function score() {
+    hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
+    if (a > 5) {
+        defeat.style.display = "block";
+    }
+}
+restart.addEventListener("click", refresh)
+dfRestart.addEventListener("click", refresh)
+vcRestart.addEventListener("click", refresh)
