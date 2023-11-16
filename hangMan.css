@@ -183,6 +183,7 @@ h2 {
     padding-left: 4px;
     background-color: rgb(245, 245, 118);
     border-radius: 5px;
+    border: 1px solid #000;
 }
 
 #solve:hover {
