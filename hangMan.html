@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="hangMan.css">
 </head>
 
@@ -13,7 +16,7 @@
         <div class="banner-content">
             <img src="./images/HG-releived.png" alt="Hangman Relieved">
 
-            <h2>You Won</h2>
+            <h2>You Won!</h2>
             <div class="button-container">
                 <button id="vic-restart">&#8634;</button>
                 <a href="" id="exit"><img class="home" src="./images/house-svgrepo-com.svg" alt=""></a>
@@ -24,7 +27,7 @@
         <div class="banner-content">
             <img src="./images/HG-dead.png" alt="Dead Hangman">
 
-            <h2>You Lost</h2>
+            <h2>You Lost!</h2>
             <div class="button-container">
                 <button id="def-restart">&#8634;</button>
                 <a href="" id="exit"><img class="home" src="./images/house-svgrepo-com.svg" alt=""></a>
@@ -68,6 +71,7 @@
         </div>
     </div>
     <div id="solve-banner" class="banner">
+        <button id="btg">X</button>
         <div class="solve-content">
             <h3>All Or Nothing!</h3>
             <h4>Think you know the word?

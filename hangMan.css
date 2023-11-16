@@ -25,6 +25,29 @@ body {
     align-items: center;
     justify-content: space-around;
     display: none;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: white;
+    border: 10px solid rgb(156, 109, 39);
+    border-radius: 20px;
+    background-color: rgb(1, 124, 124);
+    z-index: 100;
+}
+
+#btg {
+    position: absolute;
+    font-size: 3.5rem;
+    font-family: 'Nanum Pen Script';
+    color: white;
+    border: none;
+    background-color: rgb(1, 124, 124);
+    right: 5vw;
+    top: 2vh;
+}
+
+#btg:hover {
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .solve-content {
@@ -39,11 +62,17 @@ body {
 h3 {
     text-align: center;
     font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: white;
 }
 
 h4 {
     text-align: center;
     font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: white;
 }
 
 .word-inpt {
@@ -58,18 +87,20 @@ h4 {
 
 #word-sbmt {
     font-size: 1.5rem;
-    width: 30%;
     margin: 0 auto;
     padding: 5px;
     border-radius: 10px;
     color: black;
     background-color: white;
+    background-image: url(./images/notbeook.webp);
+    background-position: center;
+    background-size: 10vw;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: black;
+    border: 2px solid #000;
 }
 
-#word-sbmt:hover {
-    background-color: #dddddd;
-    cursor: pointer;
-}
 
 #vic-Banner {
     display: none;
@@ -126,7 +157,7 @@ h2 {
     background-image: url(./images/Hangman.jpeg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 15%;
+    background-size: 30vh;
     border: 15px solid rgb(165, 116, 42);
     border-radius: 20px;
     background-color: rgb(1, 124, 124);
@@ -167,7 +198,9 @@ h2 {
     border-radius: 5px;
 }
 
-#restart:hover {
+#restart:hover,
+#def-restart:hover,
+#vic-restart {
     background-color: lightblue;
     cursor: pointer;
     font-weight: bold;
@@ -197,7 +230,7 @@ h2 {
     width: 100%;
     background-image: url(./images/notbeook.webp);
     background-position: center;
-    background-size: 22vw;
+    background-size: 15vw;
     height: 10vh;
     padding: 10px;
     display: flex;
@@ -212,8 +245,10 @@ h2 {
     height: 90%;
     border-bottom: 4px solid #000;
     text-align: center;
-    font-size: 2rem;
-    color: black;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: blue;
 }
 
 .score {
@@ -257,16 +292,34 @@ h2 {
     font-size: 2rem;
     padding: 2px;
     text-align: center;
-    width: 15vw;
+    background-image: url(./images/notbeook.webp);
+    background-position: center;
+    background-size: 10vw;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: blue;
 }
 
 #letter-sbmt {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: black;
-    width: 40%;
     margin: 0 auto;
     padding: 5px;
     border-radius: 10px;
+    background-image: url(./images/notbeook.webp);
+    background-position: center;
+    background-size: 10vw;
+    border: 2px solid #000;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: black;
+}
+
+#letter-sbmt:hover,
+#word-sbmt:hover {
+    color: blue;
+    cursor: pointer;
+    border: 2px solid blue;
 }
 
 .bank-container {
@@ -280,7 +333,7 @@ h2 {
     width: 60%;
     background-image: url(./images/notbeook.webp);
     background-position: center;
-    background-size: 20vw;
+    background-size: 15vw;
     margin: 0 auto;
     border-radius: 10px;
     padding: 5px;
@@ -290,4 +343,96 @@ h2 {
     align-items: center;
     justify-content: center;
     border: 3px solid #000;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script';
+    color: blue;
+}
+
+@media(max-width:1350px) {
+    .bottom-container {
+        background-size: 25vh;
+    }
+}
+
+@media(max-width:1100px) {
+    .bottom-container {
+        background-size: 20vh;
+    }
+}
+
+@media(max-width:1000px) {
+    .words {
+        background-size: 20vh;
+    }
+
+    .bottom-container {
+        background-size: 15vh;
+    }
+
+    .inpt-style {
+        font-size: 1.5rem;
+    }
+
+    #bank {
+        font-size: 1.5rem;
+    }
+
+    #letter-sbmt {
+        width: none;
+        font-size: 1rem;
+    }
+
+    #word-sbmt {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media(max-width:800px) {
+    .gameButtons {
+        left: 5vw;
+    }
+
+    .bottom-container {
+        background-size: 12vh;
+        background-position-y: top;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    img {
+        width: 70%;
+    }
+}
+
+@media(max-width:600px) {
+    .words {
+        background-size: 15vh;
+    }
+
+    .gameButtons {
+        left: 7vw;
+    }
+
+    #btg {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .button-container {
+        width: 50vw;
+    }
+
+    img {
+        width: 80%;
+    }
 }

@@ -12,6 +12,7 @@ const vcRestart = document.getElementById('vic-restart')
 const victory = document.getElementById('vic-Banner')
 const solveButton = document.getElementById('solve');
 const solve = document.getElementById('solve-banner');
+const back2Game = document.getElementById('btg');
 let a = 0;
 const bank = document.getElementById('bank');
 letterSBMT.disabled = true;
@@ -81,7 +82,7 @@ letterSBMT.addEventListener("click", function () {
 wordSBMT.addEventListener("click", function () {
     let plyrWord = wordInpt.value;
     console.log(plyrWord)
-    if (String(plyrWord) === String(answer.toLowerCase())) {
+    if (String(plyrWord.toLowerCase()) === String(answer.toLowerCase())) {
         solve.style.display = "none";
         victory.style.display = 'block';
     } else {
@@ -92,6 +93,9 @@ wordSBMT.addEventListener("click", function () {
 })
 solveButton.addEventListener("click", function () {
     solve.style.display = 'block';
+})
+back2Game.addEventListener("click", function () {
+    solve.style.display = "none";
 })
 
 function refresh() {
