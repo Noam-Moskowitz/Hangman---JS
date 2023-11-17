@@ -112,7 +112,7 @@ function refresh() {
 function score() {
     hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
     if (a > 5) {
-        document.querrySelector('.reveal').innerHTML = "The correct answer is " + answer;
+        document.querrySelector('.reveal').innerHTML = "<p>The correct answer is " + answer + "</p>"
         defeat.style.display = "block";
     }
 }
