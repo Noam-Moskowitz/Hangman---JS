@@ -23,6 +23,7 @@ let answer = options[randomize()];
 let answerLength = answer.length;
 letterSBMT.disabled = true;
 wordSBMT.disabled = true;
+document.querrySelector('.reveal').innerHTML = "<p>The correct answer is " + answer + "</p>";
 console.log(answer)
 
 /* Determines the lenght of the board */
@@ -112,7 +113,6 @@ function refresh() {
 function score() {
     hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
     if (a > 5) {
-        document.querrySelector('.reveal').innerHTML = "<p>The correct answer is " + answer + "</p>"
         defeat.style.display = "block";
     }
 }
