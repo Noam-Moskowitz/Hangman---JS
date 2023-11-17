@@ -18,12 +18,12 @@ const solveButton = document.getElementById('solve');
 const solve = document.getElementById('solve-banner');
 const back2Game = document.getElementById('btg');
 const bank = document.getElementById('bank');
+let reveal = document.querySelector('.reveal');
 let a = 0;
 let answer = options[randomize()];
 let answerLength = answer.length;
 letterSBMT.disabled = true;
 wordSBMT.disabled = true;
-document.querrySelector('.reveal').innerHTML = "<p>The correct answer is " + answer + "</p>";
 console.log(answer)
 
 /* Determines the lenght of the board */
@@ -88,6 +88,7 @@ wordSBMT.addEventListener("click", function () {
         victory.style.display = 'block';
     } else {
         solve.style.display = "none";
+        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
         defeat.style.display = 'block';
     }
     wordInpt.value = "";
@@ -113,6 +114,7 @@ function refresh() {
 function score() {
     hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
     if (a > 5) {
+        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
         defeat.style.display = "block";
     }
 }
