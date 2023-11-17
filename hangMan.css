@@ -429,6 +429,12 @@ h2 {
     #btg {
         font-size: 2rem;
     }
+    .reveal{
+        font-size: 1.2rem;
+    }
+    .bigger{
+        font-size: 1.4rem;
+    }
 
     h3 {
         font-size: 3rem;
