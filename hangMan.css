@@ -419,7 +419,7 @@ h2 {
 
 @media(max-width:600px) {
     .words {
-        background-size: 40vh;
+        background-size: 60vh;
     }
 
     .gameButtons {
