@@ -88,7 +88,7 @@ wordSBMT.addEventListener("click", function () {
         victory.style.display = 'block';
     } else {
         solve.style.display = "none";
-        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
+        reveal.innerHTML = "<p>The word was <br><span class = 'bigger'>"+ answer+"</span></p>";
         defeat.style.display = 'block';
     }
     wordInpt.value = "";
@@ -114,7 +114,7 @@ function refresh() {
 function score() {
     hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.jpeg)'
     if (a > 5) {
-        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
+        reveal.innerHTML = "<p>The word was <br><span class = 'bigger'>"+ answer+"</span></p>";
         defeat.style.display = "block";
     }
 }
