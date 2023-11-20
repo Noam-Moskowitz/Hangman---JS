@@ -116,6 +116,8 @@ function playGame() {
         }
     }
 }
+
+/* checks if player guessed the correct word */
 function guess() {
     let plyrWord = wordInpt.value;
     console.log(plyrWord)
