@@ -31,68 +31,32 @@ for (x = 1; x <= answerLength; x++) {
     document.getElementById(x).classList.add('board');
 }
 
-/* Disable the submit button unless there is value in the input */
-Letterinpt.addEventListener("keyup", function () {
+/* allows player to submit using 'enter' & disables the buttons unless the input has a value*/
+Letterinpt.addEventListener("keyup", function (event) {
     if (Letterinpt.value.trim() != "") {
         letterSBMT.disabled = false;
     }
+    if (event.key == 'Enter') {
+        if (letterSBMT.value.trim() != "") {
+            playGame();
+        }
+    }
 })
-wordInpt.addEventListener("keyup", function () {
+
+
+wordInpt.addEventListener("keyup", function (event) {
     if (wordInpt.value.trim() != "") {
         wordSBMT.disabled = false;
     }
-})
-
-/* all buttons */
-letterSBMT.addEventListener("click", function () {
-    let plyrLetter = Letterinpt.value;
-    let letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase());
-    const indices = [];
-    if (letterIndex !== -1) {
-        while (letterIndex !== -1) {
-            indices.push(letterIndex);
-            letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase(), letterIndex + 1);
-        }
-        for (z = 0; z < indices.length; z++) {
-            let indicesElement = indices[z] + 1;
-            document.getElementById(indicesElement).innerHTML = "<p class = 'ptag'>" + plyrLetter + "</p>";
-            Letterinpt.value = "";
-            letterSBMT.disabled = true;
-            let BoardStatus = document.querySelectorAll('.ptag');
-            let boardstatuslength = BoardStatus.length
-            if (boardstatuslength == answerLength) {
-                victory.style.display = 'block';
-            }
-
-
-        }
-    } else {
-        let bankContains = bank.textContent;
-        let existsInBank = bankContains.indexOf(plyrLetter);
-        if (existsInBank == -1) {
-            a++;
-            score();
-            let newBankcntnt = bankContains + plyrLetter + ", ";
-            bank.textContent = newBankcntnt;
-            Letterinpt.value = "";
-            letterSBMT.disabled = true;
-            return;
+    if (event.key == 'Enter') {
+        if (wordInpt.value.trim() != "") {
+            guess();
         }
     }
 })
-wordSBMT.addEventListener("click", function () {
-    let plyrWord = wordInpt.value;
-    console.log(plyrWord)
-    if (String(plyrWord.toLowerCase()) === String(answer.toLowerCase())) {
-        solve.style.display = "none";
-        victory.style.display = 'block';
-    } else {
-        solve.style.display = "none";
-        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
-        defeat.style.display = 'block';
-    }
-    wordInpt.value = "";
-})
+
+letterSBMT.addEventListener("click", playGame);
+wordSBMT.addEventListener("click", guess);
 solveButton.addEventListener("click", function () {
     solve.style.display = 'block';
 })
@@ -114,9 +78,56 @@ function refresh() {
 function score() {
     hangman.style.backgroundImage = 'url(./images/Hangman' + a + '.png)'
     if (a > 5) {
-        reveal.innerHTML = "<p>The word was <span class = 'bigger'>"+ answer+"</span></p>";
+        reveal.innerHTML = "<p>The word was <span class = 'bigger'>" + answer + "</span></p>";
         defeat.style.display = "block";
     }
+}
+function playGame() {
+    let plyrLetter = Letterinpt.value;
+    let letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase());
+    const indices = [];
+    if (letterIndex !== -1) {
+        while (letterIndex !== -1) {
+            indices.push(letterIndex);
+            letterIndex = answer.toLowerCase().indexOf(plyrLetter.toLowerCase(), letterIndex + 1);
+        }
+        for (z = 0; z < indices.length; z++) {
+            let indicesElement = indices[z] + 1;
+            document.getElementById(indicesElement).innerHTML = "<p class = 'ptag'>" + plyrLetter + "</p>";
+            Letterinpt.value = "";
+            letterSBMT.disabled = true;
+            let BoardStatus = document.querySelectorAll('.ptag');
+            let boardstatuslength = BoardStatus.length
+            if (boardstatuslength == answerLength) {
+                victory.style.display = 'block';
+            }
+        }
+    } else {
+        let bankContains = bank.textContent;
+        let existsInBank = bankContains.indexOf(plyrLetter);
+        if (existsInBank == -1) {
+            a++;
+            score();
+            let newBankcntnt = bankContains + plyrLetter + ", ";
+            bank.textContent = newBankcntnt;
+            Letterinpt.value = "";
+            letterSBMT.disabled = true;
+            return;
+        }
+    }
+}
+function guess() {
+    let plyrWord = wordInpt.value;
+    console.log(plyrWord)
+    if (String(plyrWord.toLowerCase()) === String(answer.toLowerCase())) {
+        solve.style.display = "none";
+        victory.style.display = 'block';
+    } else {
+        solve.style.display = "none";
+        reveal.innerHTML = "<p>The word was <span class = 'bigger'>" + answer + "</span></p>";
+        defeat.style.display = 'block';
+    }
+    wordInpt.value = "";
 }
 restart.addEventListener("click", refresh)
 dfRestart.addEventListener("click", refresh)
